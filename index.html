@@ -3,12 +3,1281 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Molly's Muddy Buddies - Test</title>
+  <title>Molly's Muddy Buddies | Dog Walking in Weir & Bacup</title>
+  <meta name="description" content="Reliable, insured dog walking and pet sitting in Weir and Bacup, UK. Rain, snow or shine – I'll walk your dog like they're mine.">
+  <meta name="keywords" content="dog walker Weir, dog walking Bacup, pet sitting Rossendale, insured dog walker Lancashire">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Molly's Muddy Buddies">
+  <meta property="og:description" content="Rain, snow or shine, I'll walk your dog like they're mine.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mollysmuddybuddies.com">
+  
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Molly's Muddy Buddies",
+    "description": "Professional dog walking and pet sitting in Weir and Bacup",
+    "telephone": "+44-XXXX-XXXXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Weir / Bacup",
+      "addressRegion": "Lancashire",
+      "addressCountry": "GB"
+    },
+    "areaServed": "Weir, Bacup and surrounding areas"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --moss: #4a5d23;
+      --moss-dark: #3a4a1c;
+      --earth: #8b7355;
+      --earth-light: #a89078;
+      --cream: #faf8f5;
+      --bark: #4a3728;
+      --bark-light: #6b5344;
+      --gold: #c9a962;
+      --gold-muted: #b89b52;
+      --sky: #87a7b3;
+      --white: #ffffff;
+      --text: #3d3d3d;
+      --text-light: #6b6b6b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== NAVIGATION ========== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      padding: 12px 0;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav.scrolled .logo {
+      color: var(--bark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav.scrolled .nav-links a {
+      color: var(--text);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    nav.scrolled .mobile-menu-btn {
+      color: var(--bark);
+    }
+
+    /* ========== HERO SECTION - PARALLAX ========== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/IMG_6319.jpeg') center/cover no-repeat;
+      background-attachment: fixed;
+      transform: scale(1.1);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(74, 55, 40, 0.4) 0%,
+        rgba(74, 55, 40, 0.5) 50%,
+        rgba(74, 55, 40, 0.7) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--white);
+      max-width: 900px;
+      padding: 0 24px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .hero-badge i {
+      color: var(--gold);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      margin-bottom: 20px;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-weight: 300;
+      opacity: 0.95;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--bark);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-muted);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--white);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--white);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+
+    /* ========== ABOUT SECTION ========== */
+    .about {
+      padding: 120px 0;
+      background: var(--white);
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: 20px;
+      bottom: 20px;
+      border: 3px solid var(--gold);
+      border-radius: 20px;
+      z-index: -1;
+    }
+
+    .about-content h2 {
+      font-size: 3rem;
+      color: var(--bark);
+      margin-bottom: 24px;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .credential {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--cream);
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .credential i {
+      color: var(--moss);
+    }
+
+    /* ========== PARALLAX BREAK ========== */
+    .parallax-break {
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .parallax-break-bg {
+      position: absolute;
+      inset: -100px;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .parallax-break-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(74, 93, 35, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .parallax-break-content {
+      text-align: center;
+      color: var(--white);
+    }
+
+    .parallax-break-content blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-style: italic;
+      max-width: 800px;
+      line-height: 1.4;
+    }
+
+    /* ========== SERVICES SECTION ========== */
+    .services {
+      padding: 120px 0;
+      background: var(--cream);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 80px;
+    }
+
+    .section-header h2 {
+      font-size: 3rem;
+      color: var(--bark);
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 1.15rem;
+      color: var(--text-light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 48px 36px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--moss), var(--gold));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, var(--moss), var(--moss-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-icon i {
+      font-size: 2rem;
+      color: var(--white);
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      color: var(--bark);
+      margin-bottom: 16px;
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    /* ========== GALLERY SECTION ========== */
+    .gallery {
+      padding: 120px 0;
+      background: var(--bark);
+    }
+
+    .gallery .section-header h2,
+    .gallery .section-header p {
+      color: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 280px);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+
+    .gallery-item:nth-child(1) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(74, 55, 40, 0.4) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+    /* ========== AREA SECTION ========== */
+    .area {
+      padding: 120px 0;
+      background: var(--white);
+    }
+
+    .area-content {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .area-text h2 {
+      font-size: 3rem;
+      color: var(--bark);
+      margin-bottom: 24px;
+    }
+
+    .area-text p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+
+    .area-list {
+      list-style: none;
+    }
+
+    .area-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      font-size: 1.05rem;
+    }
+
+    .area-list i {
+      color: var(--moss);
+    }
+
+    .area-map {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .area-map iframe {
+      width: 100%;
+      height: 450px;
+      border: 0;
+    }
+
+    /* ========== CONTACT SECTION ========== */
+    .contact {
+      padding: 120px 0;
+      background: var(--cream);
+      position: relative;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 300px;
+      background: url('images/IMG_6749.jpeg') center/cover no-repeat;
+      background-attachment: fixed;
+      opacity: 0.15;
+    }
+
+    .contact-container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg, var(--moss), var(--moss-dark));
+      padding: 60px;
+      color: var(--white);
+    }
+
+    .contact-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+    }
+
+    .contact-info p {
+      opacity: 0.9;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contact-method-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-method-icon i {
+      font-size: 1.2rem;
+    }
+
+    .contact-method-text span {
+      display: block;
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-bottom: 4px;
+    }
+
+    .contact-method-text a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #25D366;
+      color: var(--white);
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background: #20ba5a;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .messenger-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #0084FF;
+      color: var(--white);
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .messenger-btn:hover {
+      background: #0073e6;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 132, 255, 0.3);
+    }
+
+    .contact-form {
+      padding: 60px;
+    }
+
+    .contact-form h3 {
+      font-size: 1.8rem;
+      color: var(--bark);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 16px 20px;
+      border: 2px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      background: var(--cream);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--moss);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-submit {
+      background: var(--bark);
+      color: var(--white);
+      width: 100%;
+      padding: 18px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .form-submit:hover {
+      background: var(--bark-light);
+      transform: translateY(-2px);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--bark);
+      color: var(--white);
+      padding: 60px 0 30px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 30px;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      width: 45px;
+      height: 45px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background: var(--gold);
+      color: var(--bark);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .footer-credentials {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-credentials span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .about-grid,
+      .area-content,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-image::before {
+        display: none;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 200px);
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .gallery-item {
+        height: 250px;
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: span 1;
+        height: 300px;
+      }
+
+      .contact-info,
+      .contact-form {
+        padding: 40px 24px;
+      }
+
+      .footer-content,
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .footer-credentials {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    /* ========== SCROLL ANIMATIONS ========== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
-  <h1>Test Page</h1>
-  <p>If you can see this, GitHub Pages is working.</p>
-  <img src="images/IMG_6131.jpeg" alt="Test image" style="max-width: 300px;">
-  <p>If you can see the dog above, images are working too?</p>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="container">
+      <a href="#" class="logo">Molly's Muddy Buddies</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#area">Areas</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-shield-alt"></i>
+        Fully Insured & First-Aid Trained
+      </div>
+      <h1>Molly's Muddy Buddies</h1>
+      <p class="hero-tagline">Rain, snow or shine – I'll walk your dog like they're mine</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">
+          <i class="fas fa-paw"></i>
+          Get in Touch
+        </a>
+        <a href="#services" class="btn btn-secondary">
+          <i class="fas fa-info-circle"></i>
+          Our Services
+        </a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down fa-2x"></i>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image fade-in">
+          <img src="images/IMG_6766.jpeg" alt="Happy dogs enjoying a countryside walk in Rossendale">
+        </div>
+        <div class="about-content fade-in">
+          <h2>About Molly</h2>
+          <p>Hello! I'm Molly, and I've turned my passion for dogs into a career I absolutely love. Every day, I get to explore the beautiful Rossendale countryside with some incredible four-legged companions.</p>
+          <p>Whether your pup prefers a peaceful solo stroll or loves the energy of a group adventure, I tailor every walk to suit their personality and needs. Your dog's happiness and safety are my top priorities.</p>
+          <div class="credentials">
+            <div class="credential">
+              <i class="fas fa-check-circle"></i>
+              Fully Insured
+            </div>
+            <div class="credential">
+              <i class="fas fa-first-aid"></i>
+              Pet First-Aid Trained
+            </div>
+            <div class="credential">
+              <i class="fas fa-user"></i>
+              Sole Trader
+            </div>
+            <div class="credential">
+              <i class="fas fa-heart"></i>
+              Dog Lover
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax Break -->
+  <div class="parallax-break">
+    <div class="parallax-break-bg" style="background-image: url('images/IMG_6620.jpeg');"></div>
+    <div class="parallax-break-overlay">
+      <div class="parallax-break-content">
+        <blockquote>"The world is better with muddy paws and wagging tails"</blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Our Services</h2>
+        <p>From solo adventures to group fun, we've got every pup covered</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <i class="fas fa-dog"></i>
+          </div>
+          <h3>Solo Walks</h3>
+          <p>One-on-one attention for dogs who prefer a quieter adventure or need individual care. Perfect for anxious pups or those who just love having you all to themselves.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Group Walks</h3>
+          <p>Fun social packs for playful, well-socialised dogs who love making friends. Small groups ensure every dog gets attention while enjoying the company.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <h3>Pet Sitting & Comfort Breaks</h3>
+          <p>Home visits, feeding, and potty breaks while you're away. Whether you're at work or on holiday, your pet stays comfortable in familiar surroundings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>The Gang</h2>
+        <p>Meet some of our happy muddy buddies enjoying their adventures</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item fade-in">
+          <img src="images/IMG_6131.jpeg" alt="Happy Australian Shepherd running through green fields">
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="images/IMG_5685.jpeg" alt="Cocker Spaniel in red coat bounding through autumn leaves">
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="images/IMG_6179.jpeg" alt="Border Collie enjoying countryside walk">
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="images/IMG_5899.jpeg" alt="Cockapoo running on muddy countryside path">
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="images/IMG_5854.jpeg" alt="Cream Cockapoo on woodland path">
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="images/IMG_6104.jpeg" alt="Happy Rottweiler with colourful harness">
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="images/IMG_6150.jpeg" alt="English Springer Spaniel on country path">
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="images/IMG_6308.jpeg" alt="Happy Beagle on grassy hillside">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Area Section -->
+  <section id="area" class="area">
+    <div class="container">
+      <div class="area-content">
+        <div class="area-text fade-in">
+          <h2>Areas We Serve</h2>
+          <p>Proudly walking dogs across Weir and Bacup. Our local knowledge means we know all the best routes – from peaceful woodland trails to open moorland adventures.</p>
+          <ul class="area-list">
+            <li><i class="fas fa-map-marker-alt"></i> Weir</li>
+            <li><i class="fas fa-map-marker-alt"></i> Bacup</li>
+          </ul>
+        </div>
+        <div class="area-map fade-in">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9500!2d-2.199!3d53.702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b9d1c3e8e8e8e%3A0x1234567890abcdef!2sWeir%2C%20Bacup!5e0!3m2!1sen!2suk!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container contact-container">
+      <div class="contact-grid fade-in">
+        <div class="contact-info">
+          <h2>Let's Chat</h2>
+          <p>Ready to book a walk or just want to say hello? I'd love to hear from you and meet your furry friend!</p>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-method-icon">
+                <i class="fab fa-instagram"></i>
+              </div>
+              <div class="contact-method-text">
+                <span>Follow on Instagram</span>
+                <a href="https://instagram.com/mollysmuddybuddies" target="_blank">@mollysmuddybuddies</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-buttons">
+            <!-- Facebook Messenger Button -->
+            <a href="https://m.me/mollysmuddybuddies" class="messenger-btn" target="_blank">
+              <i class="fab fa-facebook-messenger fa-lg"></i>
+              Message on Messenger
+            </a>
+            <!-- WhatsApp Button - REPLACE 44XXXXXXXXXX with actual number, or remove if not needed -->
+            <a href="https://wa.me/44XXXXXXXXXX?text=Hi%20Molly!%20I%27d%20like%20to%20enquire%20about%20dog%20walking%20services." class="whatsapp-btn" target="_blank">
+              <i class="fab fa-whatsapp fa-lg"></i>
+              Message on WhatsApp
+            </a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Send a Message</h3>
+          <!-- OPTION 1: Formspree (replace 'your-form-id' with actual ID from formspree.io) -->
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+              <label for="message">Tell me about your dog and what you need...</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">Molly's Muddy Buddies</div>
+        <div class="footer-social">
+          <a href="https://facebook.com/mollysmuddybuddies" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com/mollysmuddybuddies" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/44XXXXXXXXXX" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Molly's Muddy Buddies. All rights reserved.</p>
+        <div class="footer-credentials">
+          <span><i class="fas fa-shield-alt"></i> Fully Insured</span>
+          <span><i class="fas fa-first-aid"></i> First-Aid Trained</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for scroll effects -->
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Fade-in on scroll animation
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    fadeElements.forEach(el => fadeInObserver.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
