@@ -15,10 +15,12 @@
   <meta name="revisit-after" content="7 days">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -45,7 +47,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Molly's Muddy Buddies",
-    "image": "https://mollysmuddybuddies.com/images/logo.svg",
+    "image": "https://mollysmuddybuddies.com/images/logo-banner.jpg",
     "description": "Professional dog walking and pet sitting in Weir and Bacup, Lancashire. Fully insured and pet first-aid trained.",
     "telephone": "+447896015851",
     "priceRange": "££",
@@ -142,11 +144,10 @@
     nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .4s;background:rgba(0,0,0,.4);backdrop-filter:blur(8px)}
     nav.scrolled{background:rgba(253,251,247,.98);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.06);padding:12px 0}
     nav .container{display:flex;justify-content:space-between;align-items:center}
-    .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-    .logo-icon{width:45px;height:45px;transition:transform .3s}
-    .logo:hover .logo-icon{transform:scale(1.05)}
-    .logo-text{font-family:'Crimson Pro',serif;font-size:1.4rem;font-weight:600;color:var(--white);transition:color .3s}
-    nav.scrolled .logo-text{color:var(--bark)}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none;cursor:pointer}
+    .logo-banner-nav{height:65px;width:auto;transition:all .3s;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))}
+    nav.scrolled .logo-banner-nav{height:55px}
+    .logo:hover .logo-banner-nav{transform:scale(1.05)}
     .nav-links{display:flex;gap:32px;list-style:none}
     .nav-links a{color:var(--white);text-decoration:none;font-weight:500;font-size:.95rem;transition:all .3s;position:relative}
     nav.scrolled .nav-links a{color:var(--text)}
@@ -159,7 +160,7 @@
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(92,74,61,.35) 0%,rgba(92,74,61,.45) 50%,rgba(92,74,61,.65) 100%)}
     .hero-content{position:relative;z-index:2;text-align:center;color:var(--white);max-width:900px;padding:0 24px;animation:fadeInUp 1s ease-out}
     @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-    .hero-logo{width:120px;height:120px;margin:0 auto 24px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.3))}
+    .hero-logo{max-width:700px;width:90%;margin:0 auto 24px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.3))}
     .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);padding:10px 20px;border-radius:50px;font-size:.85rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;border:1px solid rgba(255,255,255,.2)}
     .hero h1{font-size:clamp(3rem,8vw,5rem);margin-bottom:20px;text-shadow:0 4px 30px rgba(0,0,0,.3);font-style:italic}
     .hero-tagline{font-size:clamp(1.2rem,3vw,1.5rem);font-weight:300;opacity:.95;margin-bottom:40px;font-style:italic}
@@ -276,21 +277,26 @@
     .lightbox-nav:hover{background:rgba(255,255,255,.2)}
     .lightbox-prev{left:20px}
     .lightbox-next{right:20px}
+    .logo-lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);z-index:9999;align-items:center;justify-content:center;padding:40px;animation:fadeIn .3s}
+    .logo-lightbox.active{display:flex}
+    .logo-lightbox-content{max-width:90%;max-height:90%;object-fit:contain;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .logo-lightbox-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.1);border:2px solid var(--white);color:var(--white);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.8rem;transition:all .3s;backdrop-filter:blur(10px)}
+    .logo-lightbox-close:hover{background:rgba(255,255,255,.2);transform:scale(1.1)}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
     .floating-whatsapp{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(37,211,102,.4);transition:all .3s;opacity:0;visibility:hidden;cursor:pointer;text-decoration:none}
     .floating-whatsapp.visible{opacity:1;visibility:visible}
     .floating-whatsapp:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(37,211,102,.6)}
     .floating-whatsapp i{color:var(--white);font-size:1.8rem}
     @media(max-width:768px){.floating-whatsapp{width:56px;height:56px;bottom:20px;right:20px}.floating-whatsapp i{font-size:1.6rem}}
     @media(max-width:1024px){.about-grid,.area-content,.contact-grid{grid-template-columns:1fr}.about-image::before{display:none}.services-grid{grid-template-columns:repeat(2,1fr)}.gallery-row{grid-template-columns:1fr;gap:20px}.gallery-item{margin:20px 0}}
-    @media(max-width:768px){.nav-links{display:none}.mobile-menu-btn{display:block}.hero{min-height:600px}.hero-bg{background-attachment:scroll}.hero h1{font-size:2.5rem}.hero-logo{width:90px;height:90px}.services-grid{grid-template-columns:1fr}.contact-info,.contact-form{padding:40px 24px}.contact-buttons{flex-direction:column}.messenger-btn,.whatsapp-btn{justify-content:center}.footer-content,.footer-bottom{flex-direction:column;gap:20px;text-align:center}.footer-credentials{flex-direction:column;gap:8px}}
+    @media(max-width:768px){.nav-links{display:none}.mobile-menu-btn{display:block}.logo-banner-nav{height:55px}nav.scrolled .logo-banner-nav{height:48px}.hero{min-height:600px}.hero-bg{background-attachment:scroll}.hero h1{font-size:2.5rem}.hero-logo{max-width:95%;width:95%}.services-grid{grid-template-columns:1fr}.contact-info,.contact-form{padding:40px 24px}.contact-buttons{flex-direction:column}.messenger-btn,.whatsapp-btn{justify-content:center}.footer-content,.footer-bottom{flex-direction:column;gap:20px;text-align:center}.footer-credentials{flex-direction:column;gap:8px}}
   </style>
 </head>
 <body>
   <nav id="navbar">
     <div class="container">
-      <a href="#" class="logo">
-        <img src="images/logo.svg" alt="Molly's Muddy Buddies Logo" class="logo-icon">
-        <span class="logo-text">Molly's Muddy Buddies</span>
+      <a href="#" class="logo" id="logoLink">
+        <img src="images/logo-banner.jpg" alt="Molly's Muddy Buddies Logo" class="logo-banner-nav">
       </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -314,8 +320,8 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge"><i class="fas fa-shield-alt"></i> Fully Insured & First-Aid Trained</div>
       <h1>Molly's Muddy Buddies</h1>
+      <div class="hero-badge"><i class="fas fa-shield-alt"></i> Fully Insured & First-Aid Trained</div>
       <p class="hero-tagline">Rain, snow or shine – I'll walk your dog like they're mine</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary"><i class="fas fa-paw"></i> Get in Touch</a>
@@ -659,8 +665,8 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-logo">
-          <img src="images/logo.svg" alt="Molly's Muddy Buddies" class="footer-logo-icon">
+        <div class="footer-logo" id="footerLogoLink" style="cursor: pointer;">
+          <img src="images/logo-icon.png" alt="Molly's Muddy Buddies" class="footer-logo-icon">
           <span class="footer-logo-text">Molly's Muddy Buddies</span>
         </div>
         <div class="footer-social">
@@ -684,6 +690,14 @@
     <button class="lightbox-nav lightbox-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
     <img src="" alt="Gallery image">
     <button class="lightbox-nav lightbox-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <!-- Logo Lightbox -->
+  <div class="logo-lightbox" id="logoLightbox">
+    <div class="logo-lightbox-close" id="logoLightboxClose">
+      <i class="fas fa-times"></i>
+    </div>
+    <img src="images/logo-banner.jpg" alt="Molly's Muddy Buddies Logo Full View" class="logo-lightbox-content">
   </div>
 
   <!-- Floating WhatsApp Button -->
@@ -784,6 +798,45 @@
 
     // Netlify Forms - no JavaScript handler needed
     // Netlify handles form submission natively
+
+    // Logo lightbox functionality
+    const logoLink = document.getElementById('logoLink');
+    const footerLogoLink = document.getElementById('footerLogoLink');
+    const logoLightbox = document.getElementById('logoLightbox');
+    const logoLightboxClose = document.getElementById('logoLightboxClose');
+
+    const openLogoLightbox = () => {
+      logoLightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    logoLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLogoLightbox();
+    });
+
+    footerLogoLink.addEventListener('click', () => {
+      openLogoLightbox();
+    });
+
+    logoLightboxClose.addEventListener('click', () => {
+      logoLightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    logoLightbox.addEventListener('click', (e) => {
+      if(e.target === logoLightbox) {
+        logoLightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && logoLightbox.classList.contains('active')) {
+        logoLightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
 
   </script>
 </body>
