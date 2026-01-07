@@ -145,7 +145,7 @@
     nav.scrolled{background:rgba(253,251,247,.98);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.06);padding:12px 0}
     nav .container{display:flex;justify-content:space-between;align-items:center}
     .logo{display:flex;align-items:center;gap:12px;text-decoration:none;cursor:pointer}
-    .logo-banner-nav{height:65px;width:auto;transition:all .3s;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))}
+    .logo-banner-nav{height:65px;width:auto;transition:all .3s;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3));display:block}
     nav.scrolled .logo-banner-nav{height:55px}
     .logo:hover .logo-banner-nav{transform:scale(1.05)}
     .nav-links{display:flex;gap:32px;list-style:none}
@@ -254,7 +254,7 @@
     footer{background:var(--bark);color:var(--white);padding:60px 0 30px}
     .footer-content{display:flex;justify-content:space-between;align-items:center;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:30px}
     .footer-logo{display:flex;align-items:center;gap:12px}
-    .footer-logo-icon{width:40px;height:40px}
+    .footer-logo-icon{width:40px;height:40px;display:block}
     .footer-logo-text{font-family:'Crimson Pro',serif;font-size:1.5rem;font-weight:600;font-style:italic}
     .footer-social{display:flex;gap:16px}
     .footer-social a{width:45px;height:45px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.2rem;transition:all .3s}
@@ -296,7 +296,7 @@
   <nav id="navbar">
     <div class="container">
       <a href="#" class="logo" id="logoLink">
-        <img src="images/logo-banner.jpg" alt="Molly's Muddy Buddies Logo" class="logo-banner-nav">
+        <video src="images/logo-video.mp4" class="logo-banner-nav" autoplay loop muted playsinline></video>
       </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -666,7 +666,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo" id="footerLogoLink" style="cursor: pointer;">
-          <img src="images/logo-icon.png" alt="Molly's Muddy Buddies" class="footer-logo-icon">
+          <video src="images/logo-video.mp4" class="footer-logo-icon" autoplay loop muted playsinline></video>
           <span class="footer-logo-text">Molly's Muddy Buddies</span>
         </div>
         <div class="footer-social">
@@ -697,7 +697,7 @@
     <div class="logo-lightbox-close" id="logoLightboxClose">
       <i class="fas fa-times"></i>
     </div>
-    <img src="images/logo-banner.jpg" alt="Molly's Muddy Buddies Logo Full View" class="logo-lightbox-content">
+    <video src="images/logo-video.mp4" class="logo-lightbox-content" autoplay loop muted playsinline controls></video>
   </div>
 
   <!-- Floating WhatsApp Button -->
