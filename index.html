@@ -243,6 +243,15 @@
     .form-group textarea{resize:vertical;min-height:140px}
     .form-submit{background:var(--bark);color:var(--white);width:100%;padding:18px;border:none;border-radius:12px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Nunito',sans-serif}
     .form-submit:hover{background:var(--bark-light);transform:translateY(-2px)}
+    .instagram-section{background:var(--white);padding:100px 0}
+    .instagram-feed{margin:60px 0}
+    .instagram-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto}
+    .instagram-placeholder-item{display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:1;background:linear-gradient(135deg,var(--blush) 0%,var(--sage) 100%);border-radius:20px;text-decoration:none;color:var(--bark);transition:all .3s;padding:30px;text-align:center}
+    .instagram-placeholder-item:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.15)}
+    .instagram-placeholder-item i{font-size:3rem;margin-bottom:16px;color:var(--moss)}
+    .instagram-placeholder-item p{font-size:1rem;line-height:1.5;margin:0}
+    .instagram-placeholder-item strong{display:block;font-size:1.1rem;margin-top:4px;color:var(--bark)}
+    .instagram-cta{text-align:center;margin-top:40px}
     footer{background:var(--bark);color:var(--white);padding:60px 0 30px}
     .footer-content{display:flex;justify-content:space-between;align-items:center;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:30px}
     .footer-logo{display:flex;align-items:center;gap:12px}
@@ -270,7 +279,7 @@
     .lightbox-prev{left:20px}
     .lightbox-next{right:20px}
     @media(max-width:1024px){.about-grid,.area-content,.contact-grid{grid-template-columns:1fr}.about-image::before{display:none}.services-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,200px)}.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1}}
-    @media(max-width:768px){.nav-links{display:none}.mobile-menu-btn{display:block}.hero h1{font-size:2.5rem}.hero-logo{width:90px;height:90px}.services-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}.gallery-item{height:250px}.gallery-item:nth-child(1){grid-column:span 1;height:300px}.contact-info,.contact-form{padding:40px 24px}.contact-buttons{flex-direction:column}.messenger-btn,.whatsapp-btn{justify-content:center}.footer-content,.footer-bottom{flex-direction:column;gap:20px;text-align:center}.footer-credentials{flex-direction:column;gap:8px}}
+    @media(max-width:768px){.nav-links{display:none}.mobile-menu-btn{display:block}.hero h1{font-size:2.5rem}.hero-logo{width:90px;height:90px}.services-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}.gallery-item{height:250px}.gallery-item:nth-child(1){grid-column:span 1;height:300px}.instagram-grid{grid-template-columns:1fr;gap:16px}.contact-info,.contact-form{padding:40px 24px}.contact-buttons{flex-direction:column}.messenger-btn,.whatsapp-btn{justify-content:center}.footer-content,.footer-bottom{flex-direction:column;gap:20px;text-align:center}.footer-credentials{flex-direction:column;gap:8px}}
   </style>
 </head>
 <body>
@@ -356,7 +365,55 @@
           <p>One-on-one attention for dogs who prefer a quieter adventure or need individual care. Perfect for anxious pups or those who just love having you all to themselves.</p>
         </div>
         <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-users"></i></div>
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" width="48" height="48" fill="currentColor">
+              <!-- Left dog -->
+              <ellipse cx="25" cy="55" rx="12" ry="10" opacity="0.9"/>
+              <circle cx="20" cy="45" r="10" opacity="0.9"/>
+              <ellipse cx="18" cy="43" rx="2" ry="3" opacity="0.9"/>
+              <ellipse cx="22" cy="43" rx="2" ry="3" opacity="0.9"/>
+              <circle cx="18" cy="46" r="1.5" fill="#4a4a4a" opacity="0.9"/>
+              <circle cx="22" cy="46" r="1.5" fill="#4a4a4a" opacity="0.9"/>
+              <ellipse cx="20" cy="48" rx="1" ry="0.7" fill="#4a4a4a" opacity="0.9"/>
+              <path d="M 15 55 Q 17 60 19 55" stroke="currentColor" fill="none" opacity="0.9"/>
+              <path d="M 21 55 Q 23 60 25 55" stroke="currentColor" fill="none" opacity="0.9"/>
+              <ellipse cx="14" cy="62" rx="2.5" ry="4" opacity="0.9"/>
+              <ellipse cx="20" cy="64" rx="2.5" ry="4" opacity="0.9"/>
+              <ellipse cx="26" cy="64" rx="2.5" ry="4" opacity="0.9"/>
+              <ellipse cx="32" cy="62" rx="2.5" ry="4" opacity="0.9"/>
+
+              <!-- Center dog (larger) -->
+              <ellipse cx="50" cy="50" rx="14" ry="12"/>
+              <circle cx="50" cy="38" r="12"/>
+              <ellipse cx="47" cy="36" rx="2.5" ry="3.5"/>
+              <ellipse cx="53" cy="36" rx="2.5" ry="3.5"/>
+              <circle cx="47" cy="39" r="1.8" fill="#4a4a4a"/>
+              <circle cx="53" cy="39" r="1.8" fill="#4a4a4a"/>
+              <ellipse cx="50" cy="42" rx="1.2" ry="0.8" fill="#4a4a4a"/>
+              <path d="M 42 50 Q 44 56 47 50" stroke="currentColor" fill="none"/>
+              <path d="M 53 50 Q 55 56 58 50" stroke="currentColor" fill="none"/>
+              <ellipse cx="40" cy="58" rx="3" ry="5"/>
+              <ellipse cx="47" cy="60" rx="3" ry="5"/>
+              <ellipse cx="53" cy="60" rx="3" ry="5"/>
+              <ellipse cx="60" cy="58" rx="3" ry="5"/>
+              <path d="M 50 43 Q 50 45 48 44" stroke="#4a4a4a" fill="none" stroke-width="0.8"/>
+
+              <!-- Right dog -->
+              <ellipse cx="75" cy="55" rx="12" ry="10" opacity="0.9"/>
+              <circle cx="80" cy="45" r="10" opacity="0.9"/>
+              <ellipse cx="78" cy="43" rx="2" ry="3" opacity="0.9"/>
+              <ellipse cx="82" cy="43" rx="2" ry="3" opacity="0.9"/>
+              <circle cx="78" cy="46" r="1.5" fill="#4a4a4a" opacity="0.9"/>
+              <circle cx="82" cy="46" r="1.5" fill="#4a4a4a" opacity="0.9"/>
+              <ellipse cx="80" cy="48" rx="1" ry="0.7" fill="#4a4a4a" opacity="0.9"/>
+              <path d="M 68 55 Q 70 60 72 55" stroke="currentColor" fill="none" opacity="0.9"/>
+              <path d="M 74 55 Q 76 60 78 55" stroke="currentColor" fill="none" opacity="0.9"/>
+              <ellipse cx="68" cy="62" rx="2.5" ry="4" opacity="0.9"/>
+              <ellipse cx="74" cy="64" rx="2.5" ry="4" opacity="0.9"/>
+              <ellipse cx="80" cy="64" rx="2.5" ry="4" opacity="0.9"/>
+              <ellipse cx="86" cy="62" rx="2.5" ry="4" opacity="0.9"/>
+            </svg>
+          </div>
           <h3>Group Walks</h3>
           <p>Fun social packs for playful, well-socialised dogs who love making friends. Small groups ensure every dog gets attention while enjoying the company.</p>
         </div>
@@ -459,6 +516,41 @@
             <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
           </form>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="instagram" class="instagram-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Follow Our Adventures</h2>
+        <p>See the latest muddy paws and happy tails on Instagram</p>
+      </div>
+      <div class="instagram-feed" id="instagramFeed">
+        <!-- Instagram feed widget - To activate: Visit https://snapwidget.com/widgets -->
+        <!-- Create a free Instagram Grid widget, connect @mollysmuddybuddies, then replace this comment with your embed code -->
+        <!-- Or use this Curator.io embed as alternative (free tier available) -->
+        <div class="instagram-placeholder">
+          <div class="instagram-grid">
+            <a href="https://www.instagram.com/mollysmuddybuddies" target="_blank" rel="noopener" class="instagram-placeholder-item">
+              <i class="fab fa-instagram"></i>
+              <p>Visit our Instagram<br><strong>@mollysmuddybuddies</strong></p>
+            </a>
+            <a href="https://www.instagram.com/mollysmuddybuddies" target="_blank" rel="noopener" class="instagram-placeholder-item">
+              <i class="fas fa-camera"></i>
+              <p>Latest photos and<br><strong>adventures</strong></p>
+            </a>
+            <a href="https://www.instagram.com/mollysmuddybuddies" target="_blank" rel="noopener" class="instagram-placeholder-item">
+              <i class="fas fa-paw"></i>
+              <p>See happy dogs<br><strong>every day</strong></p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="instagram-cta fade-in">
+        <a href="https://www.instagram.com/mollysmuddybuddies" target="_blank" rel="noopener" class="btn btn-primary">
+          <i class="fab fa-instagram"></i> Follow @mollysmuddybuddies
+        </a>
       </div>
     </div>
   </section>
