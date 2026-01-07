@@ -217,7 +217,7 @@
     .area-map{border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.1)}
     .area-map iframe{width:100%;height:450px;border:0}
     .contact{background:var(--cream);position:relative}
-    .contact::before{content:'';position:absolute;top:0;left:0;right:0;height:300px;background:url('images/IMG_6749.jpeg') center/cover no-repeat;background-attachment:fixed;opacity:.1}
+    .contact::before{content:'';position:absolute;top:0;left:0;right:0;height:300px;background:url('images/IMG_6766.jpeg') center/cover no-repeat;background-attachment:fixed;opacity:.1}
     .contact-container{position:relative;z-index:1}
     .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:0;background:var(--white);border-radius:24px;overflow:hidden;box-shadow:0 25px 50px rgba(0,0,0,.08)}
     .contact-info{background:linear-gradient(135deg,var(--moss),var(--moss-dark));padding:60px;color:var(--white)}
@@ -326,10 +326,10 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-image fade-in">
-          <img src="images/IMG_6766.jpeg" alt="Happy dogs enjoying a countryside walk">
+          <img src="images/IMG_6749.jpeg" alt="Happy Rottweiler enjoying a countryside walk">
         </div>
         <div class="about-content fade-in">
-          <h2>About Molly</h2>
+          <h2>About Me</h2>
           <p>Hello! I'm Molly, and I've turned my passion for dogs into a career I absolutely love. Every day, I get to explore the beautiful countryside with some incredible four-legged companions.</p>
           <p>Whether your pup prefers a peaceful solo stroll or loves the energy of a group adventure, I tailor every walk to suit their personality and needs. Your dog's happiness and safety are my top priorities.</p>
           <div class="credentials">
@@ -355,8 +355,8 @@
   <section id="services" class="services">
     <div class="container">
       <div class="section-header fade-in">
-        <h2>Our Services</h2>
-        <p>From solo adventures to group fun, we've got every pup covered</p>
+        <h2>My Services</h2>
+        <p>From solo adventures to group fun, I've got every pup covered</p>
       </div>
       <div class="services-grid">
         <div class="service-card fade-in">
@@ -387,7 +387,7 @@
     <div class="container">
       <div class="section-header fade-in">
         <h2>The Gang</h2>
-        <p>Meet some of our happy muddy buddies enjoying their adventures</p>
+        <p>Meet some of my happy muddy buddies enjoying their adventures</p>
       </div>
       <div class="gallery-grid">
         <div class="gallery-item fade-in"><img src="images/IMG_6131.jpeg" alt="Happy Australian Shepherd running through green fields" loading="lazy"></div>
@@ -406,15 +406,15 @@
     <div class="container">
       <div class="area-content">
         <div class="area-text fade-in">
-          <h2>Areas We Serve</h2>
-          <p>Proudly walking dogs across Weir and Bacup. Our local knowledge means we know all the best routes – from peaceful woodland trails to open moorland adventures.</p>
+          <h2>Areas I Serve</h2>
+          <p>Proudly walking dogs across Weir and Bacup. My local knowledge means I know all the best routes – from peaceful woodland trails to open moorland adventures.</p>
           <ul class="area-list">
             <li><i class="fas fa-map-marker-alt"></i> Weir</li>
             <li><i class="fas fa-map-marker-alt"></i> Bacup</li>
           </ul>
         </div>
         <div class="area-map fade-in">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18535.782!2d-2.1970048!3d53.7142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b9dd5e5e5e5e5%3A0x1234567890abcdef!2sWeir%2C%20Bacup%2C%20Rossendale!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18535.782!2d-2.1970048!3d53.7252525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ba7c3e9e9e9e9%3A0x1234567890abcdef!2sOL13%2C%20Bacup%2C%20Rossendale!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
@@ -442,16 +442,14 @@
         </div>
         <div class="contact-form">
           <h3>Send a Message</h3>
-          <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
-            <!-- Web3Forms Access Key - REPLACE WITH YOUR KEY FROM WEB3FORMS_SETUP.md -->
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+            <!-- Netlify Forms -->
+            <input type="hidden" name="form-name" value="contact">
 
-            <!-- Email destination -->
-            <input type="hidden" name="from_name" value="Molly's Muddy Buddies Website">
-            <input type="hidden" name="subject" value="Contact Form - Molly's Muddy Buddies">
-
-            <!-- Spam protection -->
-            <input type="checkbox" name="botcheck" id="" style="display: none;">
+            <!-- Spam protection (honeypot) -->
+            <p style="display: none;">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
 
             <div class="form-group">
               <label for="name">Your Name</label>
@@ -480,28 +478,13 @@
   <section id="instagram" class="instagram-section">
     <div class="container">
       <div class="section-header fade-in">
-        <h2>Follow Our Adventures</h2>
-        <p>See the latest muddy paws and happy tails on Instagram</p>
+        <h2>Follow My Adventures</h2>
+        <p>See the latest muddy paws and happy tails on my Instagram</p>
       </div>
       <div class="instagram-feed" id="instagramFeed">
-        <!-- Instagram feed widget - To activate: Visit https://snapwidget.com/widgets -->
-        <!-- Create a free Instagram Grid widget, connect @mollysmuddybuddies, then replace this comment with your embed code -->
-        <!-- Or use this Curator.io embed as alternative (free tier available) -->
-        <div class="instagram-placeholder">
-          <div class="instagram-grid">
-            <a href="https://www.instagram.com/mollysmuddybuddies" target="_blank" rel="noopener" class="instagram-placeholder-item">
-              <i class="fab fa-instagram"></i>
-              <p>Visit our Instagram<br><strong>@mollysmuddybuddies</strong></p>
-            </a>
-            <a href="https://www.instagram.com/mollysmuddybuddies" target="_blank" rel="noopener" class="instagram-placeholder-item">
-              <i class="fas fa-camera"></i>
-              <p>Latest photos and<br><strong>adventures</strong></p>
-            </a>
-            <a href="https://www.instagram.com/mollysmuddybuddies" target="_blank" rel="noopener" class="instagram-placeholder-item">
-              <i class="fas fa-paw"></i>
-              <p>See happy dogs<br><strong>every day</strong></p>
-            </a>
-          </div>
+        <!-- Instagram feed - Using Curator.io for free Instagram embedding -->
+        <div id="curator-feed-default-feed-layout">
+          <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
         </div>
       </div>
       <div class="instagram-cta fade-in">
@@ -593,7 +576,7 @@
       if(e.key==='ArrowRight')lightbox.querySelector('.lightbox-next').click();
     });
 
-    // Form submission handler
+    // Form submission handler for Netlify Forms
     const form = document.getElementById('contactForm');
     const result = document.getElementById('form-result');
 
@@ -606,23 +589,23 @@
       button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
       button.disabled = true;
 
-      fetch('https://api.web3forms.com/submit', {
+      fetch('/', {
         method: 'POST',
-        body: formData
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
       })
-      .then(async (response) => {
-        let json = await response.json();
-        if (response.status == 200) {
+      .then(response => {
+        if (response.ok) {
           result.style.display = 'block';
           result.style.background = '#d4edda';
           result.style.color = '#155724';
-          result.innerHTML = 'Thank you! Your message has been sent. We\'ll get back to you soon!';
+          result.innerHTML = 'Thank you! Your message has been sent. I\'ll get back to you soon!';
           form.reset();
         } else {
           result.style.display = 'block';
           result.style.background = '#f8d7da';
           result.style.color = '#721c24';
-          result.innerHTML = json.message || 'Something went wrong. Please try again.';
+          result.innerHTML = 'Something went wrong. Please try again.';
         }
       })
       .catch(error => {
@@ -639,6 +622,13 @@
         }, 5000);
       });
     });
+
+    // Curator.io Instagram Feed
+    (function(){
+      var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
+      i.src="https://cdn.curator.io/published/YOUR_CURATOR_ID.js";
+      e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+    })();
   </script>
 </body>
 </html>
