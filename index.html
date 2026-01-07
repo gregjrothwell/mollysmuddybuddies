@@ -200,13 +200,20 @@
     .service-icon i{font-size:2rem;color:var(--white)}
     .service-card h3{font-size:1.5rem;color:var(--bark);margin-bottom:16px;font-style:italic}
     .service-card p{color:var(--text-light)}
-    .gallery{background:var(--bark);padding:120px 0}
+    .gallery{background:var(--bark);padding:120px 0;overflow:hidden}
     .gallery .section-header h2,.gallery .section-header p{color:var(--white)}
-    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,280px);gap:16px}
-    .gallery-item{position:relative;overflow:hidden;border-radius:16px;cursor:pointer}
-    .gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2}
-    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-    .gallery-item:hover img{transform:scale(1.08)}
+    .gallery-container{max-width:1400px;margin:0 auto;padding:0 24px}
+    .gallery-item{position:relative;overflow:hidden;border-radius:20px;margin:40px 0;opacity:0;transform:translateX(-100px);transition:all 1s cubic-bezier(.25,.46,.45,.94);cursor:pointer}
+    .gallery-item.visible{opacity:1;transform:translateX(0)}
+    .gallery-item.slide-right{transform:translateX(100px)}
+    .gallery-item.slide-right.visible{transform:translateX(0)}
+    .gallery-item img{width:100%;height:auto;display:block;max-height:600px;object-fit:cover;transition:transform .6s}
+    .gallery-item:hover img{transform:scale(1.05)}
+    .gallery-row{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:40px 0}
+    .gallery-row.single{grid-template-columns:1fr;max-width:900px;margin-left:auto;margin-right:auto}
+    .load-more-btn{display:block;margin:60px auto 0;padding:18px 48px;background:var(--cream);color:var(--bark);border:none;border-radius:50px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Source Sans 3',sans-serif}
+    .load-more-btn:hover{background:var(--white);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+    .load-more-btn.hidden{display:none}
     .area{background:var(--white)}
     .area-content{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
     .area-text h2{font-size:3rem;color:var(--bark);margin-bottom:24px;font-style:italic}
@@ -283,7 +290,7 @@
     .floating-whatsapp:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(37,211,102,.6)}
     .floating-whatsapp i{color:var(--white);font-size:1.8rem}
     @media(max-width:768px){.floating-whatsapp{width:56px;height:56px;bottom:20px;right:20px}.floating-whatsapp i{font-size:1.6rem}}
-    @media(max-width:1024px){.about-grid,.area-content,.contact-grid{grid-template-columns:1fr}.about-image::before{display:none}.services-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,200px)}.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1}}
+    @media(max-width:1024px){.about-grid,.area-content,.contact-grid{grid-template-columns:1fr}.about-image::before{display:none}.services-grid{grid-template-columns:repeat(2,1fr)}.gallery-row{grid-template-columns:1fr;gap:20px}.gallery-item{margin:20px 0}}
     @media(max-width:768px){.nav-links{display:none}.mobile-menu-btn{display:block}.hero h1{font-size:2.5rem}.hero-logo{width:90px;height:90px}.services-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}.gallery-item{height:250px}.gallery-item:nth-child(1){grid-column:span 1;height:300px}.instagram-grid{grid-template-columns:1fr;gap:16px}.contact-info,.contact-form{padding:40px 24px}.contact-buttons{flex-direction:column}.messenger-btn,.whatsapp-btn{justify-content:center}.footer-content,.footer-bottom{flex-direction:column;gap:20px;text-align:center}.footer-credentials{flex-direction:column;gap:8px}}
   </style>
 </head>
@@ -389,21 +396,114 @@
   </section>
 
   <section id="gallery" class="gallery">
-    <div class="container">
+    <div class="gallery-container">
       <div class="section-header fade-in">
         <h2>The Gang</h2>
         <p>Meet some of my happy muddy buddies enjoying their adventures</p>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-item fade-in"><img src="images/IMG_6131.jpeg" alt="Happy Australian Shepherd running through green fields" loading="lazy"></div>
-        <div class="gallery-item fade-in"><img src="images/IMG_5685.jpeg" alt="Cocker Spaniel in red coat bounding through autumn leaves" loading="lazy"></div>
-        <div class="gallery-item fade-in"><img src="images/IMG_6179.jpeg" alt="Border Collie enjoying countryside walk" loading="lazy"></div>
-        <div class="gallery-item fade-in"><img src="images/IMG_5899.jpeg" alt="Cockapoo running on muddy countryside path" loading="lazy"></div>
-        <div class="gallery-item fade-in"><img src="images/IMG_5854.jpeg" alt="Cream Cockapoo on woodland path" loading="lazy"></div>
-        <div class="gallery-item fade-in"><img src="images/IMG_6104.jpeg" alt="Happy Rottweiler with colourful harness" loading="lazy"></div>
-        <div class="gallery-item fade-in"><img src="images/IMG_6150.jpeg" alt="English Springer Spaniel on country path" loading="lazy"></div>
-        <div class="gallery-item fade-in"><img src="images/IMG_6308.jpeg" alt="Happy Beagle on grassy hillside" loading="lazy"></div>
+
+      <!-- Initial 12 images -->
+      <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6131.jpeg"><img src="images/IMG_6131.jpeg" alt="Happy Australian Shepherd running through green fields" loading="lazy"></picture></div>
+      <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5685.jpeg"><img src="images/IMG_5685.jpeg" alt="Cocker Spaniel in red coat bounding through autumn leaves" loading="lazy"></picture></div>
+      <div class="gallery-row">
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6179.jpeg"><img src="images/IMG_6179.jpeg" alt="Border Collie enjoying countryside walk" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5899.jpeg"><img src="images/IMG_5899.jpeg" alt="Cockapoo running on muddy countryside path" loading="lazy"></picture></div>
       </div>
+      <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6104.jpeg"><img src="images/IMG_6104.jpeg" alt="Happy Rottweiler with colourful harness" loading="lazy"></picture></div>
+      <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6150.jpeg"><img src="images/IMG_6150.jpeg" alt="English Springer Spaniel on country path" loading="lazy"></picture></div>
+      <div class="gallery-row">
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6308.jpeg"><img src="images/IMG_6308.jpeg" alt="Happy Beagle on grassy hillside" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5854.jpeg"><img src="images/IMG_5854.jpeg" alt="Cream Cockapoo on woodland path" loading="lazy"></picture></div>
+      </div>
+      <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6932.jpeg"><img src="images/IMG_6932.jpeg" alt="Happy dog on countryside adventure" loading="lazy"></picture></div>
+      <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_7074.jpeg"><img src="images/IMG_7074.jpeg" alt="Dog exploring woodland trail" loading="lazy"></picture></div>
+
+      <!-- Load More section (15 more images) -->
+      <div id="moreImages" class="hidden">
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_8140.jpeg"><img src="images/IMG_8140.jpeg" alt="Muddy buddy on adventure" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_9024.jpeg"><img src="images/IMG_9024.jpeg" alt="Happy dog in nature" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6620.jpeg"><img src="images/IMG_6620.jpeg" alt="Dog enjoying outdoor walk" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_7765.jpeg"><img src="images/IMG_7765.jpeg" alt="Playful pup on trail" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4326.jpeg"><img src="images/IMG_4326.jpeg" alt="Dog exploring countryside" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_3982.jpeg"><img src="images/IMG_3982.jpeg" alt="Happy muddy buddy" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2665.jpeg"><img src="images/IMG_2665.jpeg" alt="Dog on woodland path" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1958.jpeg"><img src="images/IMG_1958.jpeg" alt="Adventurous pup outdoors" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4513.jpeg"><img src="images/IMG_4513.jpeg" alt="Dog in natural setting" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6582.jpeg"><img src="images/IMG_6582.jpeg" alt="Happy dog on countryside walk" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_8575.jpeg"><img src="images/IMG_8575.jpeg" alt="Playful dog enjoying outdoors" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5712.jpeg"><img src="images/IMG_5712.jpeg" alt="Dog on adventure trail" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_9328.jpeg"><img src="images/IMG_9328.jpeg" alt="Muddy buddy exploring" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_3903.jpeg"><img src="images/IMG_3903.jpeg" alt="Happy dog in countryside" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2276.jpeg"><img src="images/IMG_2276.jpeg" alt="Dog enjoying nature walk" loading="lazy"></picture></div>
+      </div>
+
+      <!-- View All section (remaining images) -->
+      <div id="allImages" class="hidden">
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_0661.jpeg"><img src="images/IMG_0661.jpeg" alt="Dog on outdoor adventure" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_0667.jpeg"><img src="images/IMG_0667.jpeg" alt="Happy muddy buddy" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1071.jpeg"><img src="images/IMG_1071.jpeg" alt="Dog exploring trail" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1091.jpeg"><img src="images/IMG_1091.jpeg" alt="Playful pup outdoors" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1461.jpeg"><img src="images/IMG_1461.jpeg" alt="Dog in countryside" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1717.jpeg"><img src="images/IMG_1717.jpeg" alt="Happy dog on walk" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1960.jpeg"><img src="images/IMG_1960.jpeg" alt="Dog enjoying nature" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2033.jpeg"><img src="images/IMG_2033.jpeg" alt="Muddy buddy exploring" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2209.jpeg"><img src="images/IMG_2209.jpeg" alt="Dog on countryside path" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2282.jpeg"><img src="images/IMG_2282.jpeg" alt="Happy dog outdoors" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2623.jpeg"><img src="images/IMG_2623.jpeg" alt="Dog on adventure" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2779.jpeg"><img src="images/IMG_2779.jpeg" alt="Playful pup in nature" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_3768.jpeg"><img src="images/IMG_3768.jpeg" alt="Dog exploring outdoors" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_3907.jpeg"><img src="images/IMG_3907.jpeg" alt="Happy muddy buddy" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_3987.jpeg"><img src="images/IMG_3987.jpeg" alt="Dog on woodland trail" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4087.jpeg"><img src="images/IMG_4087.jpeg" alt="Dog enjoying countryside" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4097.jpeg"><img src="images/IMG_4097.jpeg" alt="Happy dog on walk" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4219.jpeg"><img src="images/IMG_4219.jpeg" alt="Dog in natural setting" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4295.jpeg"><img src="images/IMG_4295.jpeg" alt="Muddy buddy outdoors" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4508.jpeg"><img src="images/IMG_4508.jpeg" alt="Dog on adventure trail" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5488.jpeg"><img src="images/IMG_5488.jpeg" alt="Happy dog exploring" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5594.jpeg"><img src="images/IMG_5594.jpeg" alt="Dog in countryside" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6319.jpeg"><img src="images/IMG_6319.jpeg" alt="Playful pup on walk" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6637.jpeg"><img src="images/IMG_6637.jpeg" alt="Dog enjoying nature" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6766.jpeg"><img src="images/IMG_6766.jpeg" alt="Happy muddy buddy" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6749.jpeg"><img src="images/IMG_6749.jpeg" alt="Dog on outdoor adventure" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_7079.jpeg"><img src="images/IMG_7079.jpeg" alt="Dog exploring countryside" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_7085.jpeg"><img src="images/IMG_7085.jpeg" alt="Playful dog in nature" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_7407.jpeg"><img src="images/IMG_7407.jpeg" alt="Dog on woodland path" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_8080.jpeg"><img src="images/IMG_8080.jpeg" alt="Happy dog outdoors" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_8161.jpeg"><img src="images/IMG_8161.jpeg" alt="Muddy buddy on trail" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_8284.jpeg"><img src="images/IMG_8284.jpeg" alt="Dog enjoying countryside" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_8688.jpeg"><img src="images/IMG_8688.jpeg" alt="Happy dog on adventure" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_9027.jpeg"><img src="images/IMG_9027.jpeg" alt="Dog in natural setting" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/C88ABA9D-00EB-46DC-8C14-AF7AB60C6913.jpeg"><img src="images/C88ABA9D-00EB-46DC-8C14-AF7AB60C6913.jpeg" alt="Playful pup exploring" loading="lazy"></picture></div>
+      </div>
+
+      <button id="loadMoreBtn" class="load-more-btn">Load More Photos</button>
+      <button id="viewAllBtn" class="load-more-btn hidden">View All Photos</button>
     </div>
   </section>
 
@@ -619,6 +719,42 @@
     mobileMenuBtn.addEventListener('click',()=>{
       const isExpanded = mobileNav.classList.toggle('active');
       mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+    });
+
+    // Parallax scroll animations
+    const observerOptions={root:null,rootMargin:'0px',threshold:0.1};
+    const scrollObserver=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          scrollObserver.unobserve(entry.target);
+        }
+      });
+    },observerOptions);
+
+    document.querySelectorAll('[data-scroll]').forEach(el=>scrollObserver.observe(el));
+
+    // Load More functionality
+    const moreImages=document.getElementById('moreImages');
+    const allImages=document.getElementById('allImages');
+    const loadMoreBtn=document.getElementById('loadMoreBtn');
+    const viewAllBtn=document.getElementById('viewAllBtn');
+
+    loadMoreBtn.addEventListener('click',()=>{
+      moreImages.classList.remove('hidden');
+      loadMoreBtn.classList.add('hidden');
+      viewAllBtn.classList.remove('hidden');
+      setTimeout(()=>{
+        moreImages.querySelectorAll('[data-scroll]').forEach(el=>scrollObserver.observe(el));
+      },100);
+    });
+
+    viewAllBtn.addEventListener('click',()=>{
+      allImages.classList.remove('hidden');
+      viewAllBtn.classList.add('hidden');
+      setTimeout(()=>{
+        allImages.querySelectorAll('[data-scroll]').forEach(el=>scrollObserver.observe(el));
+      },100);
     });
 
     // Lightbox gallery
