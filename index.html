@@ -139,8 +139,8 @@
     body{font-family:'Source Sans 3',sans-serif;color:var(--text);line-height:1.7;background:var(--cream);overflow-x:hidden}
     h1,h2,h3,h4{font-family:'Crimson Pro',serif;font-weight:600;line-height:1.2}
     .container{max-width:1200px;margin:0 auto;padding:0 24px}
-    nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .4s}
-    nav.scrolled{background:rgba(253,251,247,.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.06);padding:12px 0}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .4s;background:rgba(0,0,0,.4);backdrop-filter:blur(8px)}
+    nav.scrolled{background:rgba(253,251,247,.98);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.06);padding:12px 0}
     nav .container{display:flex;justify-content:space-between;align-items:center}
     .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
     .logo-icon{width:45px;height:45px;transition:transform .3s}
@@ -213,7 +213,7 @@
     .gallery-row.single{grid-template-columns:1fr;max-width:900px;margin-left:auto;margin-right:auto}
     .load-more-btn{display:block;margin:60px auto 0;padding:18px 48px;background:var(--cream);color:var(--bark);border:none;border-radius:50px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Source Sans 3',sans-serif}
     .load-more-btn:hover{background:var(--white);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
-    .load-more-btn.hidden{display:none}
+    .hidden{display:none !important}
     .area{background:var(--white)}
     .area-content{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
     .area-text h2{font-size:3rem;color:var(--bark);margin-bottom:24px;font-style:italic}
@@ -291,7 +291,7 @@
     .floating-whatsapp i{color:var(--white);font-size:1.8rem}
     @media(max-width:768px){.floating-whatsapp{width:56px;height:56px;bottom:20px;right:20px}.floating-whatsapp i{font-size:1.6rem}}
     @media(max-width:1024px){.about-grid,.area-content,.contact-grid{grid-template-columns:1fr}.about-image::before{display:none}.services-grid{grid-template-columns:repeat(2,1fr)}.gallery-row{grid-template-columns:1fr;gap:20px}.gallery-item{margin:20px 0}}
-    @media(max-width:768px){.nav-links{display:none}.mobile-menu-btn{display:block}.hero h1{font-size:2.5rem}.hero-logo{width:90px;height:90px}.services-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}.gallery-item{height:250px}.gallery-item:nth-child(1){grid-column:span 1;height:300px}.instagram-grid{grid-template-columns:1fr;gap:16px}.contact-info,.contact-form{padding:40px 24px}.contact-buttons{flex-direction:column}.messenger-btn,.whatsapp-btn{justify-content:center}.footer-content,.footer-bottom{flex-direction:column;gap:20px;text-align:center}.footer-credentials{flex-direction:column;gap:8px}}
+    @media(max-width:768px){.nav-links{display:none}.mobile-menu-btn{display:block}.hero{min-height:600px}.hero-bg{background-attachment:scroll}.hero h1{font-size:2.5rem}.hero-logo{width:90px;height:90px}.services-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}.gallery-item{height:250px}.gallery-item:nth-child(1){grid-column:span 1;height:300px}.instagram-grid{grid-template-columns:1fr;gap:16px}.contact-info,.contact-form{padding:40px 24px}.contact-buttons{flex-direction:column}.messenger-btn,.whatsapp-btn{justify-content:center}.footer-content,.footer-bottom{flex-direction:column;gap:20px;text-align:center}.footer-credentials{flex-direction:column;gap:8px}}
   </style>
 </head>
 <body>
@@ -338,7 +338,7 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-image fade-in">
-          <img src="images/IMG_6749.jpeg" alt="Happy Rottweiler enjoying a countryside walk">
+          <img src="images/C88ABA9D-00EB-46DC-8C14-AF7AB60C6913.jpeg" alt="Molly with one of her happy muddy buddies in the snow">
         </div>
         <div class="about-content fade-in">
           <h2>About Me</h2>
@@ -402,21 +402,15 @@
         <p>Meet some of my happy muddy buddies enjoying their adventures</p>
       </div>
 
-      <!-- Initial 12 images -->
-      <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6131.jpeg"><img src="images/IMG_6131.jpeg" alt="Happy Australian Shepherd running through green fields" loading="lazy"></picture></div>
-      <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5685.jpeg"><img src="images/IMG_5685.jpeg" alt="Cocker Spaniel in red coat bounding through autumn leaves" loading="lazy"></picture></div>
+      <!-- Initial 6 images - best quality, high energy -->
+      <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_8140.jpeg"><img src="images/IMG_8140.jpeg" alt="Energetic dog leaping through countryside" loading="lazy"></picture></div>
+      <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6620.jpeg"><img src="images/IMG_6620.jpeg" alt="Happy Beagle enjoying countryside walk" loading="lazy"></picture></div>
       <div class="gallery-row">
-        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6179.jpeg"><img src="images/IMG_6179.jpeg" alt="Border Collie enjoying countryside walk" loading="lazy"></picture></div>
-        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5899.jpeg"><img src="images/IMG_5899.jpeg" alt="Cockapoo running on muddy countryside path" loading="lazy"></picture></div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1958.jpeg"><img src="images/IMG_1958.jpeg" alt="Terrier running at full speed through fields" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_3903.jpeg"><img src="images/IMG_3903.jpeg" alt="Joyful Corgi running through countryside" loading="lazy"></picture></div>
       </div>
-      <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6104.jpeg"><img src="images/IMG_6104.jpeg" alt="Happy Rottweiler with colourful harness" loading="lazy"></picture></div>
-      <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6150.jpeg"><img src="images/IMG_6150.jpeg" alt="English Springer Spaniel on country path" loading="lazy"></picture></div>
-      <div class="gallery-row">
-        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6308.jpeg"><img src="images/IMG_6308.jpeg" alt="Happy Beagle on grassy hillside" loading="lazy"></picture></div>
-        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5854.jpeg"><img src="images/IMG_5854.jpeg" alt="Cream Cockapoo on woodland path" loading="lazy"></picture></div>
-      </div>
-      <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6932.jpeg"><img src="images/IMG_6932.jpeg" alt="Happy dog on countryside adventure" loading="lazy"></picture></div>
-      <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_7074.jpeg"><img src="images/IMG_7074.jpeg" alt="Dog exploring woodland trail" loading="lazy"></picture></div>
+      <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5712.jpeg"><img src="images/IMG_5712.jpeg" alt="Beautiful Springer Spaniel on muddy adventure" loading="lazy"></picture></div>
+      <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6749.jpeg"><img src="images/IMG_6749.jpeg" alt="Happy Rottweiler ready for adventure" loading="lazy"></picture></div>
 
       <!-- Load More section (15 more images) -->
       <div id="moreImages" class="hidden">
@@ -613,9 +607,10 @@
         </div>
         <div class="contact-form">
           <h3>Send a Message</h3>
-          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+          <form name="contact" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
             <!-- Netlify Forms -->
             <input type="hidden" name="form-name" value="contact">
+            <input type="hidden" name="subject" value="New enquiry from Molly's Muddy Buddies website" />
 
             <!-- Spam protection (honeypot) -->
             <p style="display: none;">
@@ -638,7 +633,6 @@
               <label for="message">Tell me about your dog and what you need...</label>
               <textarea id="message" name="message" required></textarea>
             </div>
-            <div id="form-result" style="display:none;padding:12px;margin-bottom:16px;border-radius:8px;"></div>
             <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
           </form>
         </div>
@@ -792,52 +786,8 @@
       if(e.key==='ArrowRight')lightbox.querySelector('.lightbox-next').click();
     });
 
-    // Form submission handler for Netlify Forms
-    const form = document.getElementById('contactForm');
-    const result = document.getElementById('form-result');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const button = form.querySelector('.form-submit');
-      const originalText = button.innerHTML;
-
-      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      button.disabled = true;
-
-      fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(response => {
-        if (response.ok) {
-          result.style.display = 'block';
-          result.style.background = '#d4edda';
-          result.style.color = '#155724';
-          result.innerHTML = 'Thank you! Your message has been sent. I\'ll get back to you soon!';
-          form.reset();
-        } else {
-          result.style.display = 'block';
-          result.style.background = '#f8d7da';
-          result.style.color = '#721c24';
-          result.innerHTML = 'Something went wrong. Please try again.';
-        }
-      })
-      .catch(error => {
-        result.style.display = 'block';
-        result.style.background = '#f8d7da';
-        result.style.color = '#721c24';
-        result.innerHTML = 'Something went wrong. Please try again.';
-      })
-      .finally(() => {
-        button.innerHTML = originalText;
-        button.disabled = false;
-        setTimeout(() => {
-          result.style.display = 'none';
-        }, 5000);
-      });
-    });
+    // Netlify Forms - no JavaScript handler needed
+    // Netlify handles form submission natively
 
     // Curator.io Instagram Feed
     (function(){
