@@ -502,6 +502,63 @@
       </div>
 
       <button id="loadMoreBtn" class="load-more-btn">Load More Photos</button>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_0661.jpeg"><img src="images/IMG_0661.jpeg" alt="Dog on outdoor adventure" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_0667.jpeg"><img src="images/IMG_0667.jpeg" alt="Happy muddy buddy" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1071.jpeg"><img src="images/IMG_1071.jpeg" alt="Dog exploring trail" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1091.jpeg"><img src="images/IMG_1091.jpeg" alt="Playful pup outdoors" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1461.jpeg"><img src="images/IMG_1461.jpeg" alt="Dog in countryside" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1717.jpeg"><img src="images/IMG_1717.jpeg" alt="Happy dog on walk" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_1960.jpeg"><img src="images/IMG_1960.jpeg" alt="Dog enjoying nature" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2033.jpeg"><img src="images/IMG_2033.jpeg" alt="Muddy buddy exploring" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2209.jpeg"><img src="images/IMG_2209.jpeg" alt="Dog on countryside path" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2282.jpeg"><img src="images/IMG_2282.jpeg" alt="Happy dog outdoors" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2623.jpeg"><img src="images/IMG_2623.jpeg" alt="Dog on adventure" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_2779.jpeg"><img src="images/IMG_2779.jpeg" alt="Playful pup in nature" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_3768.jpeg"><img src="images/IMG_3768.jpeg" alt="Dog exploring outdoors" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_3907.jpeg"><img src="images/IMG_3907.jpeg" alt="Happy muddy buddy" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_3987.jpeg"><img src="images/IMG_3987.jpeg" alt="Dog on woodland trail" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4087.jpeg"><img src="images/IMG_4087.jpeg" alt="Dog enjoying countryside" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4097.jpeg"><img src="images/IMG_4097.jpeg" alt="Happy dog on walk" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4219.jpeg"><img src="images/IMG_4219.jpeg" alt="Dog in natural setting" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4295.jpeg"><img src="images/IMG_4295.jpeg" alt="Muddy buddy outdoors" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_4508.jpeg"><img src="images/IMG_4508.jpeg" alt="Dog on adventure trail" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5488.jpeg"><img src="images/IMG_5488.jpeg" alt="Happy dog exploring" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_5594.jpeg"><img src="images/IMG_5594.jpeg" alt="Dog in countryside" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6319.jpeg"><img src="images/IMG_6319.jpeg" alt="Playful pup on walk" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6637.jpeg"><img src="images/IMG_6637.jpeg" alt="Dog enjoying nature" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6766.jpeg"><img src="images/IMG_6766.jpeg" alt="Happy muddy buddy" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_6749.jpeg"><img src="images/IMG_6749.jpeg" alt="Dog on outdoor adventure" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_7079.jpeg"><img src="images/IMG_7079.jpeg" alt="Dog exploring countryside" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_7085.jpeg"><img src="images/IMG_7085.jpeg" alt="Playful dog in nature" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_7407.jpeg"><img src="images/IMG_7407.jpeg" alt="Dog on woodland path" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_8080.jpeg"><img src="images/IMG_8080.jpeg" alt="Happy dog outdoors" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_8161.jpeg"><img src="images/IMG_8161.jpeg" alt="Muddy buddy on trail" loading="lazy"></picture></div>
+        <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_8284.jpeg"><img src="images/IMG_8284.jpeg" alt="Dog enjoying countryside" loading="lazy"></picture></div>
+        <div class="gallery-row">
+          <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_8688.jpeg"><img src="images/IMG_8688.jpeg" alt="Happy dog on adventure" loading="lazy"></picture></div>
+          <div class="gallery-item slide-right" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/IMG_9027.jpeg"><img src="images/IMG_9027.jpeg" alt="Dog in natural setting" loading="lazy"></picture></div>
+        </div>
+        <div class="gallery-item" data-scroll><picture><source media="(max-width: 768px)" srcset="images/mobile/C88ABA9D-00EB-46DC-8C14-AF7AB60C6913.jpeg"><img src="images/C88ABA9D-00EB-46DC-8C14-AF7AB60C6913.jpeg" alt="Playful pup exploring" loading="lazy"></picture></div>
+      </div>
+
+      <button id="loadMoreBtn" class="load-more-btn">Load More Photos</button>
+      <button id="viewAllBtn" class="load-more-btn hidden">View All Photos</button>
     </div>
   </section>
 
