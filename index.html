@@ -4,16 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Analytics 4 - REPLACE G-XXXXXXXXXX with your Measurement ID -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-  -->
 
   <!-- Primary Meta Tags -->
   <title>Molly's Muddy Buddies | Dog Walking in Weir and Bacup</title>
@@ -778,12 +768,13 @@
 
     // Lightbox gallery
     const lightbox=document.getElementById('lightbox');
-    const lightboxImg=lightbox.querySelector('img');
+    const lightboxImg=lightbox?lightbox.querySelector('img'):null;
     const galleryItems=document.querySelectorAll('.gallery-item img');
     let currentIndex=0;
 
     galleryItems.forEach((img,index)=>{
       img.addEventListener('click',()=>{
+        if(!lightbox||!lightboxImg)return;
         currentIndex=index;
         lightboxImg.src=img.src;
         lightboxImg.alt=img.alt;
@@ -791,25 +782,42 @@
       });
     });
 
-    lightbox.querySelector('.lightbox-close').addEventListener('click',()=>lightbox.classList.remove('active'));
-    lightbox.addEventListener('click',(e)=>{if(e.target===lightbox)lightbox.classList.remove('active')});
+    if(lightbox){
+      const closeBtn=lightbox.querySelector('.lightbox-close');
+      const prevBtn=lightbox.querySelector('.lightbox-prev');
+      const nextBtn=lightbox.querySelector('.lightbox-next');
 
-    lightbox.querySelector('.lightbox-prev').addEventListener('click',()=>{
-      currentIndex=(currentIndex-1+galleryItems.length)%galleryItems.length;
-      lightboxImg.src=galleryItems[currentIndex].src;
-    });
+      if(closeBtn){
+        closeBtn.addEventListener('click',()=>lightbox.classList.remove('active'));
+      }
 
-    lightbox.querySelector('.lightbox-next').addEventListener('click',()=>{
-      currentIndex=(currentIndex+1)%galleryItems.length;
-      lightboxImg.src=galleryItems[currentIndex].src;
-    });
+      lightbox.addEventListener('click',(e)=>{
+        if(e.target===lightbox)lightbox.classList.remove('active');
+      });
 
-    document.addEventListener('keydown',(e)=>{
-      if(!lightbox.classList.contains('active'))return;
-      if(e.key==='Escape')lightbox.classList.remove('active');
-      if(e.key==='ArrowLeft')lightbox.querySelector('.lightbox-prev').click();
-      if(e.key==='ArrowRight')lightbox.querySelector('.lightbox-next').click();
-    });
+      if(prevBtn&&lightboxImg){
+        prevBtn.addEventListener('click',()=>{
+          currentIndex=(currentIndex-1+galleryItems.length)%galleryItems.length;
+          lightboxImg.src=galleryItems[currentIndex].src;
+          lightboxImg.alt=galleryItems[currentIndex].alt;
+        });
+      }
+
+      if(nextBtn&&lightboxImg){
+        nextBtn.addEventListener('click',()=>{
+          currentIndex=(currentIndex+1)%galleryItems.length;
+          lightboxImg.src=galleryItems[currentIndex].src;
+          lightboxImg.alt=galleryItems[currentIndex].alt;
+        });
+      }
+
+      document.addEventListener('keydown',(e)=>{
+        if(!lightbox.classList.contains('active'))return;
+        if(e.key==='Escape')lightbox.classList.remove('active');
+        if(e.key==='ArrowLeft'&&prevBtn)prevBtn.click();
+        if(e.key==='ArrowRight'&&nextBtn)nextBtn.click();
+      });
+    }
 
     // Netlify Forms - no JavaScript handler needed
     // Netlify handles form submission natively
@@ -821,47 +829,59 @@
     const logoLightboxClose = document.getElementById('logoLightboxClose');
 
     const openLogoLightbox = () => {
+      if(!logoLightbox)return;
       logoLightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
     };
 
-    logoLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      openLogoLightbox();
-    });
-
-    footerLogoLink.addEventListener('click', () => {
-      openLogoLightbox();
-    });
-
-    logoLightboxClose.addEventListener('click', () => {
+    const closeLogoLightbox = () => {
+      if(!logoLightbox)return;
       logoLightbox.classList.remove('active');
       document.body.style.overflow = '';
-    });
+    };
 
-    logoLightbox.addEventListener('click', (e) => {
-      if(e.target === logoLightbox) {
-        logoLightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
+    if(logoLink){
+      logoLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLogoLightbox();
+      });
+    }
 
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape' && logoLightbox.classList.contains('active')) {
-        logoLightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
+    if(footerLogoLink){
+      footerLogoLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLogoLightbox();
+      });
+    }
+
+    if(logoLightboxClose){
+      logoLightboxClose.addEventListener('click', closeLogoLightbox);
+    }
+
+    if(logoLightbox){
+      logoLightbox.addEventListener('click', (e) => {
+        if(e.target === logoLightbox) {
+          closeLogoLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && logoLightbox.classList.contains('active')) {
+          closeLogoLightbox();
+        }
+      });
+    }
 
     // FormSpree success message
     const urlParams = new URLSearchParams(window.location.search);
     if(urlParams.get('success') === 'true') {
       const formSuccess = document.getElementById('formSuccess');
       const contactForm = document.getElementById('contactForm');
-      formSuccess.classList.remove('hidden');
-      contactForm.classList.add('hidden');
-      // Remove URL parameter after showing message
-      window.history.replaceState({}, document.title, window.location.pathname + '#contact');
+      if(formSuccess && contactForm){
+        formSuccess.classList.remove('hidden');
+        contactForm.classList.add('hidden');
+        window.history.replaceState({}, document.title, window.location.pathname + '#contact');
+      }
     }
 
   </script>
